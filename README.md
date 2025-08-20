@@ -1,18 +1,22 @@
 # Laravel Context Engineering Template
 
-Bu proje, yeni Laravel projelerine başlarken "Context Engineering" (Bağlam Mühendisliği) prensiplerini kullanarak proje planlama, görev oluşturma ve dağıtım süreçlerini otomatikleştirmek için tasarlanmış bir başlangıç şablonudur. Projenin temel amacı, proje gereksinimlerini, teknik özellikleri ve kuralları yapılandırılmış metin dosyaları (`context/` klasörü) olarak tanımlayarak, bu bağlamdan otomatik olarak görev listeleri, raporlar ve dağıtım planları (`output/` klasörü) üretmektir.
+This project is a starter template designed to automate project planning, task creation, and deployment processes for new Laravel projects using the principles of **Context Engineering**. The core purpose is to define project requirements, technical specifications, and rules in structured text files (within the `context/` folder) and automatically generate task lists, reports, and deployment plans from this context (in the `output/` folder).
 
-## ✨ Temel Felsefe
+---
 
-Bu şablon, geliştirme sürecinin başlangıcındaki belirsizlikleri azaltmayı hedefler. Geliştirme ekibi, kod yazmaya başlamadan önce aşağıdaki adımları izleyerek projenin tüm yönlerini netleştirir:
+## ✨ Core Philosophy
 
-1.  **Bağlamı Tanımla (`context/`):** Proje hedefleri, müşteri gereksinimleri, teknik şartnameler ve geliştirme kuralları gibi tüm bilgiler Markdown dosyalarına işlenir.
-2.  **Komutları Çalıştır (`commands/`):** Tanımlanmış komutlar, `context` dosyalarını ve `prompts` içindeki şablonları kullanarak anlamlı çıktılar üretir.
-3.  **Çıktıyı Kullan (`output/`):** Oluşturulan görev listeleri, planlar ve raporlar, proje yönetimi ve geliştirme süreçleri için doğrudan kullanılabilir hale gelir.
+This template aims to reduce uncertainty at the beginning of the development process. The development team clarifies all aspects of the project before writing a single line of code by following these steps:
 
-## 📂 Dizin Yapısı
+1.  **Define the Context (`context/`):** All information, such as project goals, client requirements, technical specifications, and development rules, is documented in Markdown files.
+2.  **Run the Commands (`commands/`):** The defined commands use the `context` files and the templates within `prompts` to generate meaningful output.
+3.  **Use the Output (`output/`):** The generated task lists, plans, and reports can be used directly for project management and development processes.
 
-Projenin ana mantığını oluşturan klasörler şunlardır:
+---
+
+## 📂 Directory Structure
+
+The main folders that form the project's logic are as follows:
 
 ```
 .
@@ -39,51 +43,59 @@ Projenin ana mantığını oluşturan klasörler şunlardır:
     └── refine_and_deploy.tpl
 ```
 
-## 🚀 Nasıl Kullanılır?
+---
 
-Bu şablonu kullanarak yeni bir projeye başlamak için aşağıdaki adımları izleyin:
+## 🚀 How to Use It
 
-### Adım 1: Proje Bağlamını Doldurun
+To start a new project using this template, follow these steps:
 
-[`context/`](context/) klasöründeki tüm `.md` dosyalarını projenizin gereksinimlerine göre düzenleyin. Bu, projenizin "tek doğruluk kaynağı" (single source of truth) olacaktır.
+### Step 1: Fill in the Project Context
 
--   **[`project_brief.md`](context/project_brief.md):** Projenin genel hedeflerini ve özetini tanımlayın.
--   **[`client_requirements.md`](context/client_requirements.md):** Müşterinin fonksiyonel ve fonksiyonel olmayan tüm isteklerini listeleyin.
--   **[`technical_specifications.md`](context/technical_specifications.md):** Kullanılacak teknoloji yığınını, mimariyi ve standartları belirtin.
--   **[`development_rules.md`](context/development_rules.md):** Kodlama standartları, Git akışı ve test kurallarını belirleyin.
--   Diğer dosyaları (`database_schema.md`, `performance_goals.md` vb.) projenize uygun şekilde doldurun.
+Edit all `.md` files in the [`context/`](context/) folder according to your project's requirements. This will serve as the project's **single source of truth**.
 
-### Adım 2: Komutları Çalıştırın
+* **[`project_brief.md`](context/project_brief.md):** Define the overall goals and summary of the project.
+* **[`client_requirements.md`](context/client_requirements.md):** List all functional and non-functional requests from the client.
+* **[`technical_specifications.md`](context/technical_specifications.md):** Specify the technology stack, architecture, and standards to be used.
+* **[`development_rules.md`](context/development_rules.md):** Define coding standards, Git workflow, and testing rules.
+* Fill in the other files (`database_schema.md`, `performance_goals.md`, etc.) as appropriate for your project.
 
-[`commands/`](commands/) klasöründeki komutlar, `context` ve `prompts` klasörlerini kullanarak çeşitli çıktılar üretir. Bu komutları manuel olarak veya bir otomasyon betiği aracılığıyla çalıştırabilirsiniz.
+### Step 2: Run the Commands
 
--   **`generate_tasks.txt`:** Proje belgelerinden yola çıkarak ayrıntılı bir görev listesi oluşturur.
--   **`refine_and_deploy.txt`:** Mevcut planı analiz eder ve dağıtım (deployment) için optimize edilmiş talimatlar üretir.
--   **`performance_security_report.txt`:** Kod parçacıklarını veya dosyaları güvenlik ve performans açısından analiz eder.
--   **`breakdown_task_step_by_step.txt`:** Tek bir büyük görevi daha küçük, yönetilebilir alt adımlara böler.
+The commands in the [`commands/`](commands/) folder use the `context` and `prompts` folders to generate various outputs. You can run these commands manually or through an automation script.
 
-### Adım 3: Çıktıları İnceleyin ve Kullanın
+* **`generate_tasks.txt`:** Creates a detailed task list based on the project documents.
+* **`refine_and_deploy.txt`:** Analyzes the current plan and generates optimized instructions for deployment.
+* **`performance_security_report.txt`:** Analyzes code snippets or files for security and performance.
+* **`breakdown_task_step_by_step.txt`:** Breaks down a single large task into smaller, manageable sub-steps.
 
-`output/` klasöründe oluşturulan dosyaları proje planlama, görev atama ve geliştirme süreçlerinde kullanın. Örneğin, `generated_tasks.md` dosyasını proje yönetim aracınıza (Jira, Trello, vb.) aktarabilirsiniz.
+### Step 3: Review and Use the Output
 
-## 🛠️ Komutlar ve Amaçları
+Use the files generated in the `output/` folder for project planning, task assignment, and development processes. For example, you can import the `generated_tasks.md` file into your project management tool (Jira, Trello, etc.).
 
--   **[`generate_tasks`](commands/generate_tasks.txt):** Proje gereksinimlerinden yola çıkarak geliştirme ekibi için bir yapılacaklar listesi (to-do list) oluşturur.
--   **[`breakdown_task_step_by_step`](commands/breakdown_task_step_by_step.txt):** Karmaşık bir görevi (örneğin, "Kimlik doğrulama sistemi kur") adım adım uygulanabilir alt görevlere ayırır.
--   **[`performance_security_report`](commands/performance_security_report.txt):** Mevcut kodu, projenin güvenlik ve performans hedeflerine göre denetleyerek bir rapor oluşturur.
--   **[`code_quality_audit`](commands/code_quality_audit.txt):** Kodun kalite standartlarına (PSR, SOLID vb.) uygunluğunu denetler ve iyileştirme önerileri sunar.
--   **[`refine_and_deploy`](commands/refine_and_deploy.txt):** Proje planını son haline getirir ve canlı ortama dağıtım için adım adım bir kılavuz hazırlar.
+---
 
-## 🤝 Katkıda Bulunma
+## 🛠️ Commands and Their Purpose
 
-Bu şablonu geliştirmek için katkıda bulunabilirsiniz. Lütfen bir "issue" açın veya "pull request" gönderin.
+-   **[`generate_tasks`](commands/generate_tasks.txt):** Creates a to-do list for the development team based on project requirements.
+-   **[`breakdown_task_step_by_step`](commands/breakdown_task_step_by_step.txt):** Breaks down a complex task (e.g., "Set up an authentication system") into step-by-step, actionable sub-tasks.
+-   **[`performance_security_report`](commands/performance_security_report.txt):** Audits existing code against the project's security and performance goals and generates a report.
+-   **[`code_quality_audit`](commands/code_quality_audit.txt):** Audits code for compliance with quality standards (e.g., PSR, SOLID) and provides suggestions for improvement.
+-   **[`refine_and_deploy`](commands/refine_and_deploy.txt):** Finalizes the project plan and prepares a step-by-step guide for deployment to a live environment.
 
-1.  Projeyi Fork'layın.
-2.  Yeni bir özellik dalı oluşturun (`git checkout -b feature/yeni-ozellik`).
-3.  Değişikliklerinizi commit'leyin (`git commit -m 'feat: Yeni bir özellik eklendi'`).
-4.  Dalınızı push'layın (`git push origin feature/yeni-ozellik`).
-5.  Bir Pull Request açın.
+---
 
-## 📄 Lisans
+## 🤝 Contributing
 
-Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasına
+You can contribute to improving this template. Please feel free to open an issue or submit a pull request.
+
+1.  Fork the Project.
+2.  Create your Feature Branch (`git checkout -b feature/new-feature`).
+3.  Commit your Changes (`git commit -m 'feat: Added a new feature'`).
+4.  Push to the Branch (`git push origin feature/new-feature`).
+5.  Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
